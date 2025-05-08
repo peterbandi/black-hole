@@ -1,0 +1,33 @@
+[tool.pytest.ini_options]
+minversion = "8.3"
+testpaths = ["tests"]
+
+[tool.ruff]
+required-version = ">=0.11.8"
+line-length = 120
+fix = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "ANN002", "ANN003", "ANN101", "ANN102", "C90", "COM812", "CPY", "D202", "D212", "DTZ005", "ERA", "EXE", "FA", "FBT",
+    "FIX", "G001", "G004", "ISC001", "PD003", "PD004", "PD015", "PD901", "PLC0414", "PLR2004", "PYI041", "S113",
+    "TD003", "TID252", "TRY002", "TRY003"
+]
+# "PERF401": REMOVED from the ignore list. Performance is important in low-level libraries.
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["PT003", "S101", "S311"]
+"__init__.py" = ["F401"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["aiosyn*"]
+
+[tool.ruff.lint.pylint]
+max-public-methods = 10
+max-branches = 30
+max-args = 15
+max-statements = 150
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
